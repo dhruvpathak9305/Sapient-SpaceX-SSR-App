@@ -30,7 +30,7 @@ const HomePage = (props) => {
   const head = () => {
     return (
       <Helmet key={Math.random()}>
-        <title>SpaceX - missions</title>
+        <title>{`SpaceX-Launches *${props.launchesData.length}`}</title>
         <meta property="og:title" content="SpaceX App" />
         <meta name="description" content="SpaceX Launches Data Application" />
         <meta name="robots" content="index, follow" />
