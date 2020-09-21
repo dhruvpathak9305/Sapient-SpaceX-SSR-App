@@ -19,6 +19,7 @@ Styling is done by using <b>bootstrap and materialize css</b>.
 
 # Lighthouse Score
 
-![Light House Score ](https://i.ibb.co/HzY8bj2/Screenshot-2020-09-12-at-9-56-08-PM.png)
+![Screenshot from 2020-09-22 04-39-49](https://user-images.githubusercontent.com/16598629/93832545-b24cef80-fc93-11ea-873f-e19a75327400.png)
+
 
 
