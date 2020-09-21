@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Helmet } from "react-helmet";
 import PropTypes from "prop-types"; // ES6
-import { fetchMissions } from "../actions";
+import { fetchLaunches } from "../actions";
 import Sidebar from "../components/Sidebar";
 import LaunchesList from "../components/LaunchesList";
 import { useLocation, useHistory } from "react-router-dom";
@@ -16,10 +16,9 @@ const HomePage = (props) => {
 
   useEffect(() => {
     const fetchFilteredLaunches = async () => {
-      await props.fetchMissions(location.search);
+      await props.fetchLaunches(location.search);
       setLoading(false);
     };
-
     fetchFilteredLaunches();
   }, [location.search]);
 
@@ -32,10 +31,10 @@ const HomePage = (props) => {
     return (
       <Helmet key={Math.random()}>
         <title>SpaceX - missions</title>
-        <meta property="og:title" content="SpaceX - missions" />
-        <meta name="description" content="latest spaceXdata missions" />
+        <meta property="og:title" content="SpaceX App" />
+        <meta name="description" content="SpaceX Launches Data Application" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://react-ssr-ilker.herokuapp.com" />
+        <link rel="canonical" href="https://spacex-sapient.herokuapp.com" />
       </Helmet>
     );
   };
@@ -54,8 +53,8 @@ const HomePage = (props) => {
               <Sidebar updateSearchString={handleUpdateSearchString} />
             </div>
             <div className="col-12 col-md-9 col-lg-10">
-              <div className="row">
-                <LaunchesList loading={loading} launches={props.spaceXdata} />
+              <div className="row ">
+                <LaunchesList loading={loading} launches={props.launchesData} />
               </div>
             </div>
           </div>
@@ -67,26 +66,26 @@ const HomePage = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    spaceXdata: state.spaceXdata,
+    launchesData: state.launchesData,
   };
 };
 
 const loadData = (store) => {
   //Load the initial data before the rendering takes place.
-  return store.dispatch(fetchMissions());
+  return store.dispatch(fetchLaunches());
 };
 
 HomePage.propTypes = {
-  spaceXdata: PropTypes.arrayOf(PropTypes.any),
-  fetchMissions: PropTypes.func,
+  launchesData: PropTypes.arrayOf(PropTypes.any),
+  fetchLaunches: PropTypes.func,
 };
 
 HomePage.defaultProps = {
-  spaceXdata: [],
-  fetchMissions: null,
+  launchesData: [],
+  fetchLaunches: null,
 };
 
 export default {
-  component: connect(mapStateToProps, { fetchMissions })(HomePage),
+  component: connect(mapStateToProps, { fetchLaunches })(HomePage),
   loadData,
 };

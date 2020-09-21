@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import usersReducer from './usersReducer';
+import launchesReducer from './launchesReducer';
 
 export default combineReducers({
-  spaceXdata: usersReducer
+  launchesData: launchesReducer
 });

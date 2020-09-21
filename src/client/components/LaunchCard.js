@@ -24,9 +24,7 @@ export default function LaunchCard(props) {
 
         <span className="blue-text">
           <ul>
-            {launch.missionId.map((id) => (
-              <li key={id}>{id}</li>
-            ))}
+            <li>{launch.missionId}</li>
           </ul>
         </span>
       </div>

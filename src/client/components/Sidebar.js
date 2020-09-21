@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import dataUtils from "../utils/dataUtils";
-
-// import "./Sidebar.css";
 import FilterGroup from "./FilterGroup";
 
 export default function Sidebar(props) {
+  
   const [yearFilter, setYearFilter] = useState(null);
   const [launchSuccessFilter, setLaunchSuccessFilter] = useState(null);
   const [landSuccessFilter, setLandSuccessFilter] = useState(null);

@@ -1,6 +1,6 @@
 function formatLaunchData(launchData) {
   return launchData.map((launch) => ({
-    missionId: launch.mission_id,
+    missionId: (launch.mission_id[0]?launch.mission_id[0]:"NOT PRESENT"),
     launchYear: launch.launch_year,
     launchSuccess: launch.launch_success,
     landSuccess: launch.rocket.first_stage.cores[0].land_success,
